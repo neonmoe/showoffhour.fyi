@@ -30,10 +30,14 @@ function updateTimer() {
             nearestTime = timeUntil;
         }
         if (timeUntil - WEEK > -HOUR) {
-            timerElement.innerHTML = "It's #showoffhour!";
+            timerElement.innerHTML = "It's showoff time!";
             theHourIsNow = true;
+            if (offset == OFFSET_WEDNESDAY + HOUR * 12) {
+                timerElement.innerHTML = "It's high noon!";
+            }
         }
     });
+
     if (!theHourIsNow) {
         let addLeadingZero = (n) => { if (n < 10) { return "0" + n; } else { return n; } };
         let day = addLeadingZero(Math.floor(nearestTime / DAY));
